@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>qustion?</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #c12b44, #dc7133);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #ff69b4;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff85c0;
+    }
+
+    img {
+      width: 200px;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Page Styles */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    #sadPuppy {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="backgroundMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="container">
+    <!-- Page 1: Welcome Page -->
+    <div id="page1" class="page active">
+      <h1>Oiii oiii POtetOO!!! 💕</h1>
+      <img src="1.jpg" alt="" /> <!-- Add your image URL here -->
+      <button onclick="startMusic(); goToPage(2)"> Huh?➡️</button>
+    </div>
+
+    <!-- Page 2: The Question -->
+    <div id="page2" class="page">
+      <h1>ARE YOU ALIVE? 💖</h1>
+      <img src="4.jpg" alt="" /> <!-- Add your image URL here -->
+      <div class="buttons">
+        <button class="yes" onclick="goToPage(3)">Yes😉</button>
+        <button class="no" onclick="showSadPuppy()">NOI</button>
+      </div>
+      <div id="sadPuppy" style="display: none;">
+        <p>😢 Aww... I'll wait patiently.</p>
+        <img src="https://www.reddit.com/r/cat/comments/16mwmfd/hhh_funny_cat_face/#lightbox" alt="Sad Puppy Image Placeholder" /> <!-- Add your image URL here -->
+      </div>
+    </div>
+
+    <!-- Page 3: The Question -->
+    <div id="page3" class="page">
+      <h1>ARE YOU A GIRL?👀 </h1>
+      <img src="g.jpg" alt="" /> <!-- Add your image URL here -->
+      <div class="buttons">
+        <button class="yes" onclick="goToPage(4)">Yes🤷🏻‍♀️</button>
+        <button class="no" onclick="showSadPuppy()">NOI</button>
+      </div>
+      <div id="sadPuppy" style="display: none;">
+        <p>😢 Aww... I'll wait patiently.</p>
+        <img src="" alt="Sad Puppy Image Placeholder" /> <!-- Add your image URL here -->
+      </div>
+    </div>
+
+    <!-- Page 4: The Question -->
+    <div id="page4" class="page">
+      <h1>DO YOU THINK ME IS ATTRACTIVE? 💖</h1>
+      <img src="7.jpg" alt="Page 4 Image Placeholder" /> <!-- Add your image URL here -->
+      <div class="buttons">
+        <button class="yes" onclick="goToPage(5)">Yes💋</button>
+        <button class="no" onclick="showSadPuppy()">NOI</button>
+      </div>
+      <div id="sadPuppy" style="display: none;">
+        <p>😢 Aww... I'll wait patiently.</p>
+        <img src="" alt="Sad Puppy Image Placeholder" /> <!-- Add your image URL here -->
+      </div>
+    </div>
+
+    <!-- Page 5: The Final Question -->
+    <div id="page5" class="page">
+      <h1>WILL YOU BE MY GIRL FRENDA? 💖</h1>
+      <img src="2.jpg" alt="" /> <!-- Add your image URL here -->
+      <div class="buttons">
+        <button class="yes" onclick="goToPage(6)">Yes💕</button>
+        <button class="no" onclick="showSadPuppy()">NOI</button>
+      </div>
+      <div id="sadPuppy" style="display: none;">
+        <p>😢 Aww... I'll wait patiently.</p>
+        <img src="" alt="Sad Puppy Image Placeholder" /> <!-- Add your image URL here -->
+      </div>
+    </div>
+
+    <!-- Page 6: The Celebration -->
+    <body>
+      <div class=".heart"></div>
+    </body>
+    <div id="page6" class="page">
+      <h1> Finally!!! 🎉 </h1>
+      <p> USSSS </p>
+      <img src="Snapchat-1017117404_Original.jpg" alt="" /> <!-- Add your image URL here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to navigate between pages
+    function goToPage(pageNumber) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+
+    // Start background music
+    function startMusic() {
+      const music = document.getElementById('backgroundMusic');
+      music.play();
+    }
+
+    // Show the sad puppy message
+    function showSadPuppy() {
+      const sadPuppy = document.getElementById('sadPuppy');
+      if (sadPuppy.classList.contains('hidden')) {
+        sadPuppy.classList.remove('hidden');
+      }
+    }
+
+    // Handle autoplay restrictions
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('backgroundMusic');
+      music.pause();
+    });
+  </script>
+</body>
+</html>
